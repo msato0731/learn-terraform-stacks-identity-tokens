@@ -22,3 +22,7 @@ variable "tfc_hostname" {
 variable "account_id" {
   type = string
 }
+
+variable "oidc_provider_arn" {
+  type = string
+}

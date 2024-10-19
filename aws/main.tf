@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "stacks_role_policy" {
     effect = "Allow"
     principals {
       type        = "Federated"
-      identifiers = "arn:aws:iam::${var.account_id}:oidc-provider/app.terraform.io"
+      identifiers = var.oidc_provider_arn
     }
     actions = ["sts:AssumeRoleWithWebIdentity"]
     condition {
