@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "stacks_role_policy" {
     effect = "Allow"
     principals {
       type        = "Federated"
-      identifiers = var.oidc_provider_arn
+      identifiers = [var.oidc_provider_arn]
     }
     actions = ["sts:AssumeRoleWithWebIdentity"]
     condition {
@@ -56,4 +56,8 @@ resource "aws_iam_role_policy_attachment" "sudo" {
 
 output "role_arn" {
   value = aws_iam_role.stacks_role.arn
+}
+
+output "test" {
+  value = var.oidc_provider_arn
 }
